@@ -1,4 +1,5 @@
 ﻿using DiscordRPC;
+using DiscordRPC.Logging;
 using System;
 
 namespace DiscordRichPresenceSetter
@@ -11,13 +12,9 @@ namespace DiscordRichPresenceSetter
         {
             Initialize("applicationID");
 
-            Console.WriteLine("Press any key to close the program");
-
             Console.ReadKey(true);
 
             Dispose();
-
-            Console.ReadKey(true);
         }
 
         private static void Initialize(string applicationID)
@@ -31,10 +28,7 @@ namespace DiscordRichPresenceSetter
 
         private static void SetPresence()
         {
-            discordRpcClient.SetPresence(new RichPresence()
-            {
-                Details = "Hello World, Discord Edition"
-            });
+            discordRpcClient.SetPresence(new RichPresence());
         }
 
         private static void Dispose()
